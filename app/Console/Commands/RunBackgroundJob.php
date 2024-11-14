@@ -10,6 +10,15 @@ class RunBackgroundJob extends Command
     protected $signature = 'job:run {class} {method} {parameters?}';
     protected $description = 'Run a background job';
 
+    /**
+     * Handle the execution of a background job.
+     *
+     * This method retrieves the class name, method name, and parameters from the
+     * command line arguments, and uses the BackgroundJobRunner service to execute
+     * the specified method. It outputs the result of the execution to the command line.
+     *
+     * If the job execution fails, an error message is displayed.
+     */
     public function handle()
     {
         $className = $this->argument('class');
